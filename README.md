@@ -8,4 +8,4 @@ A third person shooter game made using python and pygame
 
 
 
-Another note to make; the Backgrounds file has multiple backgrounds and most of them are not even used, so you can play around with changing the background.
+Another note to make; the Backgrounds file has multiple backgrounds and most of them are not even used, so you can play around changing the backgrounds as you prefer.
