@@ -42,43 +42,43 @@ grenade = False
 grenade_thrown = False
 
 #load music and sounds
-pygame.mixer.music.load('Music\music2.mp3')
+pygame.mixer.music.load('Ghost-shooter-game-main\Music\music2.mp3')
 pygame.mixer.music.set_volume(0.3)
 pygame.mixer.music.play(-1, 0.0, 5000)
-jump_fx = pygame.mixer.Sound('Music\Audio_jump.wav')
+jump_fx = pygame.mixer.Sound('Ghost-shooter-game-main\Music\Audio_jump.wav')
 jump_fx.set_volume(0.5)
-shot_fx = pygame.mixer.Sound('Music\Audio_shot.wav')
+shot_fx = pygame.mixer.Sound('Ghost-shooter-game-main\Music\Audio_shot.wav')
 shot_fx.set_volume(0.5)
-grenade_fx = pygame.mixer.Sound('Music\Audio_grenade.wav')
+grenade_fx = pygame.mixer.Sound('Ghost-shooter-game-main\Music\Audio_grenade.wav')
 grenade_fx.set_volume(0.5)
 
 #load images
 #button images
-start_img = pygame.image.load('img\Buttons\start_btn.png').convert_alpha()
-exit_img = pygame.image.load('img\Buttons\exit_btn.png').convert_alpha()
-restart_img = pygame.image.load('img\Buttons\Restart_btn.png').convert_alpha()
+start_img = pygame.image.load('Ghost-shooter-game-main\img\Buttons\start_btn.png').convert_alpha()
+exit_img = pygame.image.load('Ghost-shooter-game-main\img\Buttons\exit_btn.png').convert_alpha()
+restart_img = pygame.image.load('Ghost-shooter-game-main\img\Buttons\Restart_btn.png').convert_alpha()
 
 #background
-sky_img = pygame.image.load('Backgrounds\Beta1.png').convert_alpha()
+sky_img = pygame.image.load('Ghost-shooter-game-main\img\Backgrounds\Beta1.png').convert_alpha()
 #store tiles in a list
 img_list = []
 for x in range(TILE_TYPES):
-    img = pygame.image.load(f'Tiles\{x}.png').convert_alpha()
+    img = pygame.image.load(f'Ghost-shooter-game-main\Tiles\{x}.png').convert_alpha()
     img = pygame.transform.scale(img, (TILE_SIZE, TILE_SIZE))
     img_list.append(img)
 
 #bullet
-enemy_puff_img = pygame.image.load('img\icons\enemy_puff.png').convert_alpha()
-ghost_puff_img = pygame.image.load('img\icons\ghost_puff.png').convert_alpha()
+enemy_puff_img = pygame.image.load('Ghost-shooter-game-main\img\icons\enemy_puff.png').convert_alpha()
+ghost_puff_img = pygame.image.load('Ghost-shooter-game-main\img\icons\ghost_puff.png').convert_alpha()
 
 #grenade
-grenade_img = pygame.image.load('img\icons\ghost_grenade.png').convert_alpha()
+grenade_img = pygame.image.load('Ghost-shooter-game-main\img\icons\ghost_grenade.png').convert_alpha()
 
 #pick up boxes
-big_health_box_img = pygame.image.load('img\icons\Big_health_box.png').convert_alpha()
-health_box_img = pygame.image.load('img\icons\health_box.png').convert_alpha()
-ghost_puff_box_img = pygame.image.load('img\icons\energy_box.png').convert_alpha()
-grenade_box_img = pygame.image.load('img\icons\grenade_box.png').convert_alpha()
+big_health_box_img = pygame.image.load('Ghost-shooter-game-main\img\icons\Big_health_box.png').convert_alpha()
+health_box_img = pygame.image.load('Ghost-shooter-game-main\img\icons\health_box.png').convert_alpha()
+ghost_puff_box_img = pygame.image.load('Ghost-shooter-game-main\img\icons\energy_box.png').convert_alpha()
+grenade_box_img = pygame.image.load('Ghost-shooter-game-main\img\icons\grenade_box.png').convert_alpha()
 
 item_boxes = {
     'Big Health': big_health_box_img,
@@ -96,7 +96,7 @@ BLACK = (0, 0, 0)
 PINK = (235, 65, 54)
 
 #define font
-font = pygame.font.Font('Font\Pixeboy-z8XGD.ttf', 30)
+font = pygame.font.Font('Ghost-shooter-game-main\Font\Pixeboy-z8XGD.ttf', 30)
 
 def draw_text(text, font, text_color, x, y):
     img = font.render(text, True, text_color)
@@ -165,10 +165,10 @@ class Ghost(pygame.sprite.Sprite):
             temp_list = []
 
             #count number of files in the folder 
-            num_of_frames = len(os.listdir(f'img\{self.char_type}\{animation}'))
+            num_of_frames = len(os.listdir(f'Ghost-shooter-game-main\img\{self.char_type}\{animation}'))
             
             for i in range(num_of_frames):
-                img = pygame.image.load(f'img\{self.char_type}\{animation}\{i}.png').convert_alpha()
+                img = pygame.image.load(f'Ghost-shooter-game-main\img\{self.char_type}\{animation}\{i}.png').convert_alpha()
                 img = pygame.transform.scale(img, (int(img.get_width() * scale), int(img.get_height() * scale)))
                 temp_list.append(img)
             self.animation_list.append(temp_list)
@@ -754,7 +754,7 @@ for row in range(ROWS):
     world_data.append(r)
 
 #load in level data and create world
-with open(f'Shooter game/level{level}_data.csv', newline='') as csvfile:
+with open(f'Ghost-shooter-game-main/Shooter game/level{level}_data.csv', newline='') as csvfile:
     reader = csv.reader(csvfile, delimiter = ',')
     for x, row in enumerate(reader):
         for y, tile in enumerate(row):
