@@ -31,18 +31,18 @@ scroll_speed = 1
 
 
 #load images
-graveyard_img = pygame.image.load('Backgrounds\Beta4.png').convert_alpha()
+graveyard_img = pygame.image.load('Ghost-shooter-game-main\img\Backgrounds\Beta4.png').convert_alpha()
 
 
 #store tiles in a list
 img_list = []
 for x in range(TILE_TYPES):
-	img = pygame.image.load(f'Tiles\{x}.png').convert_alpha()
+	img = pygame.image.load(f'Ghost-shooter-game-main\Tiles\{x}.png').convert_alpha()
 	img = pygame.transform.scale(img, (TILE_SIZE, TILE_SIZE))
 	img_list.append(img)
 
-save_img = pygame.image.load('img\Buttons\save_btn.png').convert_alpha()
-load_img = pygame.image.load('img\Buttons\load_btn.png').convert_alpha()
+save_img = pygame.image.load('Ghost-shooter-game-main\img\Buttons\save_btn.png').convert_alpha()
+load_img = pygame.image.load('Ghost-shooter-game-main\img\Buttons\load_btn.png').convert_alpha()
 
 #define colours
 GREEN = (144, 201, 120)
@@ -206,4 +206,3 @@ while run:
     pygame.display.update()
 
 pygame.quit()
-
